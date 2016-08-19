@@ -47,13 +47,13 @@ function printQuote() {
 	var saying = getRandomQuote();
 	var html = "<p class='quote'>" + saying.quote + "</p>";
 	html += "<p class='source'>" + saying.source;
-	if (saying.citation !== "") { // Optional Citation section
+	if (saying.hasOwnProperty("citation") && saying.citation !== "") { // Optional Citation section
 		html += "<span class='citation'>" + saying.citation + "</span>";
 	}
-	if (saying.year !== "") { // Optional Year section
+	if (saying.hasOwnProperty("year") && saying.year !== "") { // Optional Year section
 		html += "<span class='year'>" + saying.year + "</span>";
 	}
-	if (saying.tags.length > 0) { // Show any tags on quote
+	if (saying.hasOwnProperty("tags") && saying.tags.length > 0) { // Show any tags on quote
 		html += "<p class='tags'>";
 		for( var i = 0; i < saying.tags.length; i++) {
 			html += "<span class='tag'>" + saying.tags[i] + "</span>";
