@@ -1,9 +1,10 @@
-// event listener to respond to "Show another quote" button clicks
-// when user clicks anywhere on the button, the "printQuote" function is called
+// event listener to respond to "Show another quote" button clicks.
 document.getElementById('loadQuote').addEventListener("click", refreshRandomQuote, false);
+// event listener to respont to "Start the Party!" and "Stop the party..." button clicks.
 document.getElementById('raveParty').addEventListener("click", startParty, false);
 
-var intervalQuote = window.setInterval(refreshRandomQuote, 10000); // Display a new quote every 10 seconds.
+// Set a callback function to run every 10 seconds and call refreshRandomQuote
+var intervalQuote = window.setInterval(refreshRandomQuote, 10000);
 
 /*
  Return a random quote from the quotes array, and move the node to the displayedQuotes array
@@ -18,13 +19,12 @@ function getRandomQuote() {
 	var index = getRandom(0, quotes.length);
 	var saying = quotes.splice(index, 1)[0]; // splice returns an array so get the first index to get our object.
 	displayedQuotes.push(saying);
-	//console.log(quotes.length, displayedQuotes.length);
 	return saying;
 }
 
+// Convert 3 base10 random numbers between 0-255 to a base 16 string or hex value and concats them, this represents an rbg value in hex.
 // Returns a random hex rbg value.
 function getRandomColor() {
-	// Convert 3 base10 random numbers between 0-255 to a base 16 string or hex value which represents rbg.
 	return ('#' + getRandom(0, 255).toString(16) + 
 				  getRandom(0, 255).toString(16) + 
 				  getRandom(0, 255).toString(16));
@@ -40,7 +40,7 @@ function getRandom(min, max) {
 	return Math.floor((Math.random() * max) + min );
 }
 
-// Randomize the quote and page color.
+// Get a random quote and update the quote-box, only displaying the filled out properties.
 function printQuote() {
 	var quoteBox = document.getElementById("quote-box");
 	var saying = getRandomQuote();
@@ -63,7 +63,8 @@ function printQuote() {
 	quoteBox.innerHTML = html;
 }
 
-// Change the Quote and page color.
+// Change the Quote and page color. 
+// Reset the auto-refresh to 10 seconds since we just changed the quote.
 function refreshRandomQuote() {
 	printQuote();
 	displayRandomColor();
@@ -71,7 +72,7 @@ function refreshRandomQuote() {
 	intervalQuote = window.setInterval(refreshRandomQuote, 10000);
 }
 
-// Having fun with the interval and color setting, make the page flashy and hip.
+// Having fun with the interval and color setting, make the page flashy, and give them a way back.
 var party = false;
 function startParty() {
 	if (party) {
