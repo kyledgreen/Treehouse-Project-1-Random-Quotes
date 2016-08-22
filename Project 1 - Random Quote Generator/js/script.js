@@ -42,7 +42,6 @@ function getRandom(min, max) {
 
 // Randomize the quote and page color.
 function printQuote() {
-	resetAutoRefresh();
 	var quoteBox = document.getElementById("quote-box");
 	var saying = getRandomQuote();
 	var html = "<p class='quote'>" + saying.quote + "</p>";
@@ -68,10 +67,6 @@ function printQuote() {
 function refreshRandomQuote() {
 	printQuote();
 	displayRandomColor();
-}
-
-// Reset auto refresh to 10 seconds in case user pressed butotn.
-function resetAutoRefresh() {
 	window.clearInterval(intervalQuote);
 	intervalQuote = window.setInterval(refreshRandomQuote, 10000);
 }

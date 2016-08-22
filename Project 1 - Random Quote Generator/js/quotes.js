@@ -37,10 +37,7 @@ var quotes = [
 	},
 	{
 		quote: "If the man doesn’t believe as we do, we say he is a crank, and that settles it. I mean, it does nowadays, because now we can’t burn him.",
-		source: "Mark Twain",
-		citation: "",
-		year: "",
-		tags: []
+		source: "Mark Twain"
 	},
 	{
 		quote: "All you need is ignorance and confidence and the success is sure.",

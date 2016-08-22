@@ -59,7 +59,7 @@ body {
 .tags {
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 50px;
 }
 .tag:before {
 	content: " {";
